@@ -99,8 +99,11 @@ class PyCollab:
 
 if __name__=="__main__":
     parser=ArgumentParser()
-    parser.add_argument("-s", "--server", help="Specifies the server and port of the connection as host:port.", required=True)
-    parser.add_argument("-p", "--server_password", help="If the server requires a password, use this option to specify it.")
+    parser.add_argument("-s", "--server", help="Specifies the server and port of the connection as host:port, the option saved to the package.json file will be used if not specified.")
+    parser.add_argument("-a", "--server_password", help="If the server requires a password, use this option to specify it.")
+    parser.add_argument("-p", "--package", help="Sets the package.json file for the project if not found in directory.")
+    parser.add_argument("-l", "--login", help="Offers option to login to server specifying server and being prompted for username and password.")
     args=parser.parse_args()
     host, port=args.server.split(":")
+    if parser.get
     collab=PyCollab(host, port)
